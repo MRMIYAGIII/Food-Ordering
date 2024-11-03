@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRINCE FOOD - Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0') center/cover no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .registration-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            margin: auto;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin: auto;
+        }
+
+        .card-header {
+            background: none;
+            border-bottom: none;
+            padding: 20px 20px 0;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 10px;
+        }
+
+        .logo-container svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            color: #333;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            border-color: #D61C2B;
+            box-shadow: none;
+        }
+
+        .text-danger {
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        .btn-register {
+            background: #D61C2B;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background: #c41925;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 28, 43, 0.3);
+        }
+
+        .login-link {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #D61C2B;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .alert {
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Custom scrollbar for the container */
+        .registration-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .registration-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .registration-container::-webkit-scrollbar-thumb {
+            background: rgba(214, 28, 43, 0.5);
+            border-radius: 3px;
+        }
+
+        @media (max-height: 800px) {
+            .registration-container {
+                padding: 10px;
+            }
+            
+            .form-group {
+                margin-bottom: 10px;
+            }
+            
+            .logo-container svg {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="logo-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="98" fill="#fff" stroke="#D61C2B" stroke-width="2"/>
+                        <circle cx="100" cy="100" r="88" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+                        <path d="M60 70 L80 50 L100 70 L120 50 L140 70 L130 85 L70 85 Z" fill="#D61C2B" stroke="#333" stroke-width="1.5"/>
+                        <circle cx="80" cy="60" r="3" fill="#333"/>
+                        <circle cx="100" cy="60" r="3" fill="#333"/>
+                        <circle cx="120" cy="60" r="3" fill="#333"/>
+                        <g transform="translate(100,115) rotate(-30)">
+                            <path d="M-8,-25 C-8,-15 -8,-15 -12,-15 C-8,-15 -8,-15 -8,25 C-8,28 -6,30 -4,30 C-2,30 0,28 0,25 L0,-15 C0,-15 0,-15 4,-15 C0,-15 0,-15 0,-25 Z" fill="#333"/>
+                        </g>
+                        <g transform="translate(100,115) rotate(30)">
+                            <path d="M0,-25 C12,-25 12,-15 12,-15 L4,25 C4,28 2,30 0,30 C-2,30 -4,28 -4,25 L-2,-15 Z" fill="#333"/>
+                        </g>
+                    </svg>
+                </div>
+                <h2 class="card-title">Create Account</h2>
+                <p class="text-muted">Join Prince Food today</p>
+            </div>
+            
+            <div class="card-body">
+                <div th:if="${param.success}" class="alert alert-info">
+                    You have successfully registered!
+                </div>
+                
+                <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">First Name</label>
+                            <input class="form-control" id="firstName" name="firstName" placeholder="First name" th:field="*{firstName}" type="text" />
+                            <p th:errors="*{firstName}" class="text-danger" th:if="${#fields.hasErrors('firstName')}"></p>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">Last Name</label>
+                            <input class="form-control" id="lastName" name="lastName" placeholder="Last name" th:field="*{lastName}" type="text" />
+                            <p th:errors="*{lastName}" class="text-danger" th:if="${#fields.hasErrors('lastName')}"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input class="form-control" id="email" name="email" placeholder="Email address" th:field="*{email}" type="email" />
+                        <p th:errors="*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input class="form-control" id="password" name="password" placeholder="Create password" th:field="*{password}" type="password" />
+                        <p th:errors="*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone number" th:field="*{phoneNumber}" type="text" />
+                            <p th:errors="*{phoneNumber}" class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}"></p>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label class="form-label">Date of Birth</label>
+                            <input class="form-control" id="dateOfBirth" name="dateOfBirth" th:field="*{dateOfBirth}" type="date" />
+                            <p th:errors="*{dateOfBirth}" class="text-danger" th:if="${#fields.hasErrors('dateOfBirth')}"></p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-register" type="submit">Create Account</button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a th:href="@{/login}">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
